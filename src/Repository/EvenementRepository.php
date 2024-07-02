@@ -9,35 +9,19 @@ use Doctrine\Persistence\ManagerRegistry;
 /**
  * @extends ServiceEntityRepository<Evenement>
  */
+// src/Repository/EvenementRepository.php
+
 class EvenementRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function getParticipantsForEvenement(Evenement $evenement)
     {
-        parent::__construct($registry, Evenement::class);
+        return $this->createQueryBuilder('e')
+            ->select('p')
+            ->from('App\Entity\Participant', 'p')
+            ->join('App\Entity\Inscription', 'i', 'WITH', 'i.participant = p.id')
+            ->where('i.evenement = :evenement')
+            ->setParameter('evenement', $evenement)
+            ->getQuery()
+            ->getResult();
     }
-
-    //    /**
-    //     * @return Evenement[] Returns an array of Evenement objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('e')
-    //            ->andWhere('e.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('e.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
-
-    //    public function findOneBySomeField($value): ?Evenement
-    //    {
-    //        return $this->createQueryBuilder('e')
-    //            ->andWhere('e.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
 }

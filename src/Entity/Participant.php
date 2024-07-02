@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use DateTimeImmutable;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ParticipantRepository::class)]
 class Participant
@@ -17,18 +19,25 @@ class Participant
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
     private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
     private ?string $prenom = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Email]
     private ?string $email = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $dateInscription = null;
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
+    #[Assert\NotNull]
+    private ?DateTimeImmutable $dateInscription = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column]
+    #[Assert\NotNull]
+    #[Assert\IsTrue(message: "Vous devez accepter les conditions d'utilisation")]
     private ?bool $consentementRGPD = null;
 
     /**
@@ -45,6 +54,7 @@ class Participant
 
     public function __construct()
     {
+        $this->dateInscription = new DateTimeImmutable();
         $this->inscriptions = new ArrayCollection();
         $this->gagnants = new ArrayCollection();
     }
@@ -90,14 +100,14 @@ class Participant
         return $this;
     }
 
-    public function getDateInscription(): ?\DateTimeInterface
+    public function getDateInscription(): ?DateTimeImmutable
     {
         return $this->dateInscription;
     }
 
-    public function setDateInscription(\DateTimeInterface $dateInscription): static
+    public function setDateInscription(?DateTimeImmutable $dateInscription): static
     {
-        $this->dateInscription = $dateInscription;
+        $this->dateInscription = $dateInscription ?? new DateTimeImmutable();
 
         return $this;
     }

@@ -13,7 +13,7 @@ class Tirage
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(type: 'integer')]
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
@@ -25,9 +25,6 @@ class Tirage
     #[ORM\ManyToOne(inversedBy: 'tirages')]
     private ?Evenement $evenement = null;
 
-    /**
-     * @var Collection<int, Gagnant>
-     */
     #[ORM\OneToMany(targetEntity: Gagnant::class, mappedBy: 'tirage')]
     private Collection $gagnants;
 
@@ -77,9 +74,6 @@ class Tirage
         return $this;
     }
 
-    /**
-     * @return Collection<int, Gagnant>
-     */
     public function getGagnants(): Collection
     {
         return $this->gagnants;
@@ -98,7 +92,6 @@ class Tirage
     public function removeGagnant(Gagnant $gagnant): static
     {
         if ($this->gagnants->removeElement($gagnant)) {
-            // set the owning side to null (unless already changed)
             if ($gagnant->getTirage() === $this) {
                 $gagnant->setTirage(null);
             }

@@ -27,6 +27,10 @@ export default function HorizontalScrollText() {
         scrub: 1,
         start: "top bottom",
         end: "bottom top",
+        onUpdate: (self) => {
+          // Synchroniser l'animation automatique avec le défilement
+          autoScroll.progress(self.progress);
+        },
       },
     });
 

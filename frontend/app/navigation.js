@@ -1,15 +1,18 @@
+// frontend/app/navigation.js
+
 import React from "react";
 import Section from "./section";
 import HorizontalScrollText from "./HorizontalScrollText";
+import Form from "./Form";
 
-const navigation = () => {
+const Navigation = () => {
   return (
     <div>
       <nav>
-        <div class="logo">
+        <div className="logo">
           <a>Nike X NASA</a>
         </div>
-        <div class="links">
+        <div className="links">
           <a href="#">Home</a>
           <a href="#">Work</a>
           <a href="#">Expertise</a>
@@ -19,17 +22,17 @@ const navigation = () => {
         </div>
       </nav>
 
-      <section class="lottie-container">
-        <div class="animation"></div>
+      <section className="lottie-container">
+        <div className="animation"></div>
       </section>
       <h2>
         <HorizontalScrollText />
       </h2>
 
-      <section class="gradient"></section>
+      <section className="gradient"></section>
 
-      <section class="website-content">
-        <div class="end-lottie"></div>
+      <section className="website-content">
+        <div className="end-lottie"></div>
         <h1>blabla super projet nasa x nike</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec
@@ -38,10 +41,13 @@ const navigation = () => {
           sed.
         </p>
 
-        <Section />
+        <div className="form-section">
+          <Section />
+          <Form />
+        </div>
       </section>
     </div>
   );
 };
 
-export default navigation;
+export default Navigation;

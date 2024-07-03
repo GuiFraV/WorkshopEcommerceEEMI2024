@@ -4,13 +4,6 @@ const section = () => {
   return (
     <div>
       <div class="container">
-        <div class="intro-copy">
-          <p>This message stays right here,</p>
-          <p>no matter where you go,</p>
-          <p>it won't move an inch,</p>
-          <p>even if you scroll up or down.</p>
-        </div>
-
         <div class="headers">
           <section id="section-1">
             <h1>Vaccum</h1>

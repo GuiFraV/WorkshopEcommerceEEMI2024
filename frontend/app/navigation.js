@@ -1,5 +1,6 @@
 import React from "react";
 import Section from "./section";
+import HorizontalScrollText from "./HorizontalScrollText";
 
 const navigation = () => {
   return (
@@ -21,7 +22,9 @@ const navigation = () => {
       <section class="lottie-container">
         <div class="animation"></div>
       </section>
-      <h2>Animation Text</h2>
+      <h2>
+        <HorizontalScrollText />
+      </h2>
 
       <section class="gradient"></section>
 

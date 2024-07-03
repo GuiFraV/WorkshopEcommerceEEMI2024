@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Navigation from "./navigation";
+import "./globals.css";
+import LottieScrollTrigger from "./LottieScrollTrigger";
 
 export default function InscriptionPage() {
   const [formData, setFormData] = useState({
@@ -47,48 +50,60 @@ export default function InscriptionPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="nom">Nom:</label>
-      <input
-        type="text"
-        id="nom"
-        name="nom"
-        value={formData.nom}
-        onChange={handleChange}
-        required
+    <div>
+      <Navigation />
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="nom">Nom:</label>
+        <input
+          type="text"
+          id="nom"
+          name="nom"
+          value={formData.nom}
+          onChange={handleChange}
+          required
+        />
+        <br />
+        <label htmlFor="prenom">Prénom:</label>
+        <input
+          type="text"
+          id="prenom"
+          name="prenom"
+          value={formData.prenom}
+          onChange={handleChange}
+          required
+        />
+        <br />
+        <label htmlFor="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+        <br />
+        <label htmlFor="consentementRGPD">Consentement RGPD:</label>
+        <input
+          type="checkbox"
+          id="consentementRGPD"
+          name="consentementRGPD"
+          checked={formData.consentementRGPD}
+          onChange={handleChange}
+          required
+        />
+        <br />
+        <button type="submit">S'inscrire</button>
+      </form>
+      <LottieScrollTrigger
+        trigger=".animation"
+        target=".animation"
+        path="./AASTRO.json"
+        start="top center"
+        end="bottom center"
+        scrub={2}
       />
-      <br />
-      <label htmlFor="prenom">Prénom:</label>
-      <input
-        type="text"
-        id="prenom"
-        name="prenom"
-        value={formData.prenom}
-        onChange={handleChange}
-        required
-      />
-      <br />
-      <label htmlFor="email">Email:</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        value={formData.email}
-        onChange={handleChange}
-        required
-      />
-      <br />
-      <label htmlFor="consentementRGPD">Consentement RGPD:</label>
-      <input
-        type="checkbox"
-        id="consentementRGPD"
-        name="consentementRGPD"
-        checked={formData.consentementRGPD}
-        onChange={handleChange}
-        required
-      />
-      <br />
-      <button type="submit">S'inscrire</button>
-    </form>
+      <div className="end-lottie"></div>
+    </div>
   );
 }

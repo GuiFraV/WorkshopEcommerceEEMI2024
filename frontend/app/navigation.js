@@ -3,7 +3,7 @@
 import React from "react";
 import Section from "./section";
 import HorizontalScrollText from "./HorizontalScrollText";
-import Form from "./Form";
+import CountdownTimer from "./CountdownTimer";
 
 const Navigation = () => {
   return (
@@ -14,10 +14,6 @@ const Navigation = () => {
         </div>
         <div className="links">
           <a href="#">Home</a>
-          <a href="#">Work</a>
-          <a href="#">Expertise</a>
-          <a href="#">Agency</a>
-          <a href="#">Jobs</a>
           <a href="#">Contact</a>
         </div>
       </nav>
@@ -33,18 +29,10 @@ const Navigation = () => {
 
       <section className="website-content">
         <div className="end-lottie"></div>
-        <h1>blabla super projet nasa x nike</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec
-          viverra ante. Quisque condimentum non tellus non consequat. Vivamus
-          turpis odio, facilisis nec metus a, commodo mollis sem. Pellentesque
-          sed.
-        </p>
+        <h1>Nike et la NASA : Des Chaussures Inspirées par l'Espace</h1>
 
-        <div className="form-section">
-          <Section />
-          <Form />
-        </div>
+        <CountdownTimer />
+        <button class="neon-glow-button">Lauch here</button>
       </section>
     </div>
   );

@@ -42,9 +42,7 @@ export default function HorizontalScrollText() {
   return (
     <div className="horizontal-scroll-container">
       <h2 ref={textRef} className="horizontal-scroll-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec
-        risus ac orci gravida finibus. In scelerisque arcu sit amet semper
-        dictum. Quisque finibus sed magna vel rutrum. Integer sit.
+        Nike X NASA - Nike X NASA - Nike X NASA -
       </h2>
     </div>
   );

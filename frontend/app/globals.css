@@ -15,7 +15,7 @@
 
 body {
   width: 100%;
-  height: 500vh;
+  height: 400vh;
   background: #000;
   font-family: "Nasalization", sans-serif;
   overflow-x: hidden;
@@ -194,5 +194,48 @@ img {
   }
   100% {
     transform: translate(-15%, -20%);
+  }
+}
+
+.timer {
+  font-size: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 550px;
+}
+
+.neon-glow-button {
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 60px;
+  background-color: #111;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.neon-glow-button:hover {
+  box-shadow: 0 0 50px rgba(0, 255, 255, 1), 0 0 80px rgba(0, 255, 255, 0.8),
+    0 0 100px rgba(0, 255, 255, 0.6);
+}
+
+.neon-glow-button:focus {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 1);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
   }
 }

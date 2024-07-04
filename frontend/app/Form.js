@@ -48,7 +48,7 @@ export default function Form() {
 
   return (
     <form onSubmit={handleSubmit} className="form-container">
-      <label htmlFor="nom">Nom:</label>
+      <label htmlFor="nom">Nom :</label>
       <input
         type="text"
         id="nom"
@@ -58,7 +58,7 @@ export default function Form() {
         required
       />
       <br />
-      <label htmlFor="prenom">Prénom:</label>
+      <label htmlFor="prenom">Prénom :</label>
       <input
         type="text"
         id="prenom"
@@ -68,7 +68,7 @@ export default function Form() {
         required
       />
       <br />
-      <label htmlFor="email">Email:</label>
+      <label htmlFor="email">Email :</label>
       <input
         type="email"
         id="email"
@@ -78,7 +78,7 @@ export default function Form() {
         required
       />
       <br />
-      <label htmlFor="consentementRGPD">Consentement RGPD:</label>
+      <label htmlFor="consentementRGPD">Consentement RGPD :</label>
       <input
         type="checkbox"
         id="consentementRGPD"
@@ -88,7 +88,9 @@ export default function Form() {
         required
       />
       <br />
-      <button type="submit">S'inscrire</button>
+      <button type="submit" className="neon-glow-button">
+        Launch here
+      </button>
     </form>
   );
 }

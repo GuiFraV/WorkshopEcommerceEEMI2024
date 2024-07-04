@@ -87,6 +87,12 @@ img {
   height: 100%;
 }
 
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .logo a {
   font-size: 28px;
 }
@@ -148,7 +154,6 @@ img {
   justify-content: space-around;
   align-items: center;
   gap: 2em;
-  height: 50%;
 }
 
 .form-container {
@@ -156,8 +161,13 @@ img {
   padding: 1em;
   border-radius: 10px;
   background-color: #1a1a1a;
-  height: 35%;
-  width: 60%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.form-container input {
+  color: black;
 }
 
 @keyframes animateGrain {
@@ -217,6 +227,7 @@ img {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  margin-top: 280px;
 }
 
 .neon-glow-button:hover {

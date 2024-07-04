@@ -1,15 +1,14 @@
-// frontend/app/navigation.js
-
 import React from "react";
-import Section from "./section";
 import HorizontalScrollText from "./HorizontalScrollText";
 import CountdownTimer from "./CountdownTimer";
+import Form from "./Form";
 
 const Navigation = () => {
   return (
     <div>
       <nav>
         <div className="logo">
+          <img src="images/nasa.webp" width="35px" />
           <a>Nike X NASA</a>
         </div>
         <div className="links">
@@ -32,7 +31,8 @@ const Navigation = () => {
         <h1>Nike et la NASA : Des Chaussures Inspirées par l'Espace</h1>
 
         <CountdownTimer />
-        <button class="neon-glow-button">Lauch here</button>
+
+        <Form />
       </section>
     </div>
   );
